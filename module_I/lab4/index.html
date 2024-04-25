@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercise 4</title>
+</head>
+
+<body>
+
+
+    <form action="/submit-form" method="post">
+
+        <label for="name">Name:</label>
+        <input type="text" name="name" placeholder="first name and last name">
+
+        <label for="email">Email:</label>
+        <input type="email" name="email" placeholder="youremail@company.com">
+
+        <label for="bio">Description:</label>
+        <textarea name="bio" rows="4" cols="50"></textarea>
+
+        <label for="gender">Choose your gender from the list:</label>
+        <input list="genders" id="gender" name="gender">
+        <datalist id="genders">
+            <option value="Male">
+            <option value="Female">
+            <option value="Other">
+        </datalist>
+
+        <fieldset>
+            <legend>Browser:</legend>
+            <label><input type="radio" name="Browser" value="Chrome">Chrome</label>
+            <label><input type="radio" name="Browser" value="Edge">Edge</label>
+            <label><input type="radio" name="Browser" value="Safari">Safari</label>
+            <label><input type="radio" name="Browser" value="Firefox">Firefox</label>
+            <label><input type="radio" name="Browser" value="Opera">Opera</label>
+            <label><input type="radio" name="Browser" value="Brave">Brave</label>
+        </fieldset>
+
+        <button type="submit">Send</button>
+    </form>
+
+</body>
+
+</html>
