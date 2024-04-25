@@ -1,0 +1,58 @@
+* {
+    font-size: 20px;
+    -webkit-box-sizing: border-box;
+    /* Para navegadores WebKit (Chrome, Safari) */
+    -moz-box-sizing: border-box;
+    /* Para Firefox */
+    box-sizing: border-box;
+    /* Para navegadores modernos */
+}
+
+.container header {
+    background: #416964;
+    text-align: center;
+    margin: 2px;
+}
+
+h1 {
+    font-size: 50px;
+    font-family: Arial, sans-serif;
+}
+
+.container #content {
+    background: #77a19a;
+    margin: 2px;
+}
+
+p {
+    background: #9cd5d8;
+    text-align: justify;
+    font-size: 16px;
+    font-family: Helvetica;
+    margin: 2px;
+    border-radius: 20px;
+    padding: 20px;
+}
+
+h3 {
+    text-align: center;
+    font-size: 25px;
+    font-family: Arial, sans-serif;
+}
+
+img {
+    max-width: 100%;
+    /* Establece el ancho máximo de la imagen al 100% del contenedor */
+    height: auto;
+    /* Hace que la altura se ajuste automáticamente para mantener la proporción original */
+    display: block;
+    /* Asegura que la imagen se comporte como un bloque */
+    margin: 0 auto;
+    /* Centra la imagen horizontalmente */
+}
+
+.container footer {
+    background: #416964;
+    text-align: center;
+    margin: 2px;
+}
