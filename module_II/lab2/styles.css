@@ -1,0 +1,58 @@
+* {
+    -webkit-box-sizing: border-box;
+    /* Para navegadores WebKit (Chrome, Safari) */
+    -moz-box-sizing: border-box;
+    /* Para Firefox */
+    box-sizing: border-box;
+    /* Para navegadores modernos */
+}
+
+body {
+    background-color: #050505;
+    padding-top: 50px;
+}
+
+.formulario {
+    background-color: #ffffff;
+    display: flex;
+    flex-direction: column;
+    max-width: 400px;
+    margin: 0 auto;
+    border: 5px solid #797979;
+    padding: 20px;
+}
+
+h1 {
+    text-align: center;
+}
+
+.campo {
+    margin-bottom: 20px;
+}
+
+label {
+    margin-bottom: 5px;
+    font-family: sans-serif;
+}
+
+input,
+textarea {
+    padding: 8px;
+    border: 1px solid #151518;
+    border-radius: 4px;
+    width: 100%;
+}
+
+button {
+    padding: 10px 20px;
+    background-color: #5898db;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+button:hover {
+    background-color: #055dbb;
+}
