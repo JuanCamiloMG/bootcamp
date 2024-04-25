@@ -1,0 +1,40 @@
+/*Body of the page*/
+body {
+  background-color: #050505;
+}
+
+/*Form container*/
+.container {
+  background-color: #ffffff;
+  border: 5px solid #797979;
+  max-width: 700px;
+}
+
+/*Form title¨*/
+h1 {
+  text-align: center;
+}
+
+/*Form line*/
+hr {
+  margin-top: 1rem;
+  margin-bottom: 3.5rem;
+  border-width: 0;
+  border-top: 5px solid #aacdf1;
+}
+
+/*Media query for small screen sizes*/
+@media screen and (max-width: 768px) {
+  .container {
+    padding: 10px;
+    /*Reduces space around content on small screens*/
+  }
+}
+
+/*Media query for very small screen sizes, such as cell phones in portrait orientation*/
+@media screen and (max-width: 480px) {
+  .container {
+    padding: 5px;
+    /*Further reduces the space around the content*/
+  }
+}
