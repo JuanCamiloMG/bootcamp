@@ -1,0 +1,34 @@
+/*Body of the page*/
+body {
+  background-color: #6966669f;
+}
+
+/*page header*/
+header {
+  background-color: #333;
+  color: white;
+  text-align: center;
+}
+
+/*page footer*/
+footer {
+  background-color: #333;
+  color: white;
+  text-align: center;
+}
+
+/*Media query for small screen sizes*/
+@media screen and (max-width: 768px) {
+  .container {
+    padding: 10px;
+    /*Reduces space around content on small screens*/
+  }
+}
+
+/*Media query for very small screen sizes, such as cell phones in portrait orientation*/
+@media screen and (max-width: 480px) {
+  .container {
+    padding: 5px;
+    /*Further reduces the space around the content*/
+  }
+}
