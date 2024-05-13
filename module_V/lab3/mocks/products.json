@@ -1,0 +1,29 @@
+[
+    {
+        "id": 1,
+        "productname": "Wakami Seaweed",
+        "producttype": 38,
+        "quantity": 49,
+        "price": "$66.74",
+        "latitude": -7.3440911,
+        "longitude": 107.9917034
+    },
+    {
+        "id": 2,
+        "productname": "Napkin White",
+        "producttype": 34,
+        "quantity": 60,
+        "price": "$51.73",
+        "latitude": -5.8949347,
+        "longitude": -35.4343604
+    },
+    {
+        "id": 3,
+        "productname": "Flour - Cake",
+        "producttype": 49,
+        "quantity": 29,
+        "price": "$31.26",
+        "latitude": 16.2850333,
+        "longitude": 95.6799816
+    }
+]

@@ -1,0 +1,339 @@
+openapi: 3.0.3
+info:
+  title: Swagger for Products
+  version: 1.1.6
+  description: Swagger for API of Products
+  contact:
+    email: juancamilomgdeveloper@gmail.com
+    name: Juan Camilo MG 
+    url: 'https://github.com/JuanCamiloMG'
+  license:
+    name: Apache 2.0
+    url: 'http://www.apache.org/licenses/LICENSE-2.0.html'
+servers:
+  - url: 'http://localhost:3000/api/v1'
+tags:
+  - name: products
+    description: Operations about products
+paths:
+  /products:
+    get:
+      tags:
+        - products
+      security:
+        - bearerAuth: [ ]
+      summary: Get all products
+      description: Get all products in the platform.
+      operationId: getAllProducts
+      responses:
+        '200':
+          description: successful operation
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/ProductsDetailResponse'
+        '401':
+          description: Invalid token
+          content:
+            'application/json':
+              schema:
+                $ref: '#/components/schemas/UnauthorizedError'
+        '404':
+          description: Product not found
+          content:
+            'application/json':
+              schema:
+                $ref: '#/components/schemas/NotFoundErrorResponse'
+  /products/create:
+    post:
+      tags:
+        - products
+      summary: Create product
+      description: Create a product on the platform.
+      operationId: createProduct
+      requestBody:
+        description: Created product object
+        content:
+          'application/json':
+            schema:
+              $ref: '#/components/schemas/ProductsCreateRequest'
+        required: true
+      responses:
+        '201':
+          description: successful operation
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProductsDetailResponse'
+        '400':
+          description: Invalid id supplied
+          content: { }
+        '404':
+          description: Product not found
+          content:
+            'application/json':
+              schema:
+                $ref: '#/components/schemas/NotFoundErrorResponse'
+  /products/{productname}/detail:
+    get:
+      tags:
+        - products
+      security:
+        - bearerAuth: [ ]
+      summary: Get product by productname
+      description: Detail product by productname in the platform.
+      operationId: getProductByproductname
+      parameters:
+        - name: productname
+          in: path
+          description: 'Detail of a product in active status through an productname.'
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: successful operation
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProductsDetailResponse'
+        '401':
+          description: Invalid token
+          content:
+            'application/json':
+              schema:
+                $ref: '#/components/schemas/UnauthorizedError'
+        '404':
+          description: Product not found
+          content:
+            'application/json':
+              schema:
+                $ref: '#/components/schemas/NotFoundErrorResponse'
+  /products/{productname}/update:
+    put:
+      tags:
+        - products
+      security:
+        - bearerAuth: [ ]
+      summary: Updated product by productname
+      description: Update product by productname. 
+      operationId: updateProductByproductname
+      parameters:
+        - name: productname
+          in: path
+          description: productname that need to be updated
+          required: true
+          schema:
+            type: string
+      requestBody:
+        description: Updated product object
+        content:
+          'application/json':
+            schema:
+              $ref: '#/components/schemas/ProductsUpdateRequest'
+        required: true
+      responses:
+        '200':
+          description: successful operation
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProductsDetailResponse'
+        '401':
+          description: Invalid token
+          content:
+            'application/json':
+              schema:
+                $ref: '#/components/schemas/UnauthorizedError'
+        '404':
+          description: Product not found
+          content:
+            'application/json':
+              schema:
+                $ref: '#/components/schemas/NotFoundErrorResponse'
+  /products/{productname}/delete:
+    delete:
+      tags:
+        - products
+      security:
+        - bearerAuth: [ ]
+      summary: Delete product by productname
+      description: Delete product by productname but is soft delete
+      operationId: deleteProductByproductname
+      parameters:
+        - name: productname
+          in: path
+          description: The product that needs to be deleted
+          required: true
+          schema:
+            type: string
+      responses:
+        '204':
+          description: No content
+          content: { }
+        '401':
+          description: Invalid token
+          content:
+            'application/json':
+              schema:
+                $ref: '#/components/schemas/UnauthorizedError'
+        '404':
+          description: Product not found
+          content:
+            'application/json':
+              schema:
+                $ref: '#/components/schemas/NotFoundErrorResponse'
+  /products/authenticate:
+    post:
+      tags:
+        - products
+      summary: Product authenticate by productname
+      description: Auth products on the platform by productname, generate token.
+      operationId: authenticate
+      requestBody:
+        description: Auth products object
+        content:
+          'application/json':
+            schema:
+              $ref: '#/components/schemas/ProductsAuthenticateRequest'
+        required: true
+      responses:
+        '200':
+          description: successful operation
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProductsAuthenticateResponse'
+        '404':
+          description: Product not found
+          content:
+            'application/json':
+              schema:
+                $ref: '#/components/schemas/NotFoundErrorResponse'
+components:
+  schemas:
+    ProductsDetailResponse:
+      type: object
+      properties:
+        id:
+          type: integer
+          description: Product identification
+          format: int64
+        productname:
+          type: string
+          description: Product productname min. 4 chars
+        producttype:
+          type: string
+          description: Product producttype min. 6 chars
+        quantity:
+          type: string
+          description: Product quantity min. 1 digits
+        price:
+          type: string
+          description: Product price min. 5 digits
+        latitude:
+          type: string
+          description: Product latitude min. 6 chars
+        longitude:
+          type: string
+          description: Product longitude min. 6 chars
+        status:
+          type: boolean
+          description: Product status
+    ProductsCreateRequest:
+      type: object
+      properties:
+        productname:
+          type: string
+          description: Product productname min. 4 chars
+        producttype:
+          type: string
+          description: Product producttype min. 6 chars
+        quantity:
+          type: string
+          description: Product quantity min. 1 digits
+        price:
+          type: string
+          description: Product price min. 5 digits
+        latitude:
+          type: string
+          description: Product latitude min. 6 chars
+        longitude:
+          type: string
+          description: Product longitude min. 6 chars
+    ProductsUpdateRequest:
+      type: object
+      properties:
+        producttype:
+          type: string
+          description: Product producttype min. 6 chars
+        quantity:
+          type: string
+          description: Product quantity min. 1 digits
+        price:
+          type: string
+          description: Product price min. 5 digits
+        latitude:
+          type: string
+          description: Product latitude min. 6 chars
+        longitude:
+          type: string
+          description: Product longitude min. 6 chars
+    ProductsAuthenticateRequest:
+      type: object
+      properties:
+        productname:
+          type: string
+          description: Product productname min. 4 chars
+    ProductsAuthenticateResponse:
+      type: object
+      properties:
+        id:
+          type: integer
+          description: Product identification
+          format: int64
+        productname:
+          type: string
+          description: Product productname min. 4 chars
+        producttype:
+          type: string
+          description: Product producttype min. 6 chars
+        quantity:
+          type: string
+          description: Product quantity min. 1 digits
+        price:
+          type: string
+          description: Product price min. 5 digits
+        latitude:
+          type: string
+          description: Product latitude min. 6 chars
+        longitude:
+          type: string
+          description: Product longitude min. 6 chars
+        token:
+          type: string
+          description: Bearer token
+    UnauthorizedError:
+      type: object
+      properties:
+        message:
+          type: string
+          description: Invalid Token
+    NotFoundErrorResponse:
+      type: object
+      properties:
+        code:
+          type: number
+          description: Add HTTP error code for default 404
+        message:
+          type: string
+          description: Invalid Token
+  securitySchemes:
+    bearerAuth:
+      type: http
+      scheme: bearer
+      bearerFormat: JWT  # optional, for documentation purposes only
+security:
+  - bearerAuth: []
