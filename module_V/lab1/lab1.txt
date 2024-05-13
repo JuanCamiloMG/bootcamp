@@ -1,1 +1,1 @@
-En este laboratorio se construye la api para prodcutos con sus respectivos verbos en archivo yaml.
+En este laboratorio se construye la api para productos con sus respectivos verbos en archivo yaml.
