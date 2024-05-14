@@ -1,1 +1,0 @@
-En este laboratorio seguimos trabajando con la api de productos, implementamos los Router (Controller) y Services (Business Layer) para cada uno de los endpoints del swagger, complementando el modelo dominio ya especificado con productos. Aseguramos el API con el JWT junto a su secret.
