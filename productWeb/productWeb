@@ -1,1 +1,5 @@
-
+En esta carpeta se encuentra el proyecto final del bootcamp con sus respectivos encarpetados y archivos.
+RECORDAR: descargar la carpeta node_modules tanto para el backend como para el frontend del proyecto, para poder correrlo en Gitbash.
+RECORDAR: tambien descargar la carpeta de .next para el frontend.
+Tener listo el contenedor en Docker desktop para correr la base de datos del proyecto.
+Entrar a nuestra base de datos para registrar la creacion, detalle, actualizacion y eliminacion (CRUD) de un usuario o producto usar cdm(simbolo de sistema en windows).
